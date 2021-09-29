@@ -1,0 +1,4 @@
+from os import getenv
+
+OCTO_ENABLE_SELF_REGISTRATION = getenv("OCTO_ENABLE_SELF_REGISTRATION", True)
+SQLALCHEMY_DATABASE_URI = getenv("SQLALCHEMY_DATABASE_URI", "sqlite:///db.sqlite")

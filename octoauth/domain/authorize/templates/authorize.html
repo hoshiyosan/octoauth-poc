@@ -1,0 +1,31 @@
+{% extends '_layout/base.html' %}
+
+{% block head %}
+<title>OctoAuth / Login</title>
+{% endblock head %}
+
+{% block content %}
+<main>
+    <h2>OctoAuth / Authorize</h2>
+
+    {% if application.icon_uri %}
+    <img src="{{application.icon_uri}}" alt="{{application.name}}">
+    {% endif %}
+
+    <h3>{{application.name}}</h3>
+    <p>
+        {{application.description}}
+    </p>
+
+    {% for permission in permissions %}
+    <p>
+        <label for="">
+            <input type="checkbox" checked readonly disabled>
+            {{permission.name}}
+        </label>
+        <br>
+        <i>{{permission.description}}</i>
+    </p>
+    {% endfor %}
+</main>
+{% endblock content %}

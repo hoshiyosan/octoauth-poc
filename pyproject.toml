@@ -3,6 +3,7 @@ line-length = 119
 
 [tool.pylint.messages_control]
 disable = "bad-continuation"
+max-line-length=119
 
 [tool.pytest.ini_options]
 addopts = "-s -v"

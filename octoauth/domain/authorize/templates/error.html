@@ -1,0 +1,21 @@
+{% extends '_layout/base.html' %}
+
+{% block head %}
+<title>Authorize / Error</title>
+{% endblock head %}
+
+{% block content %}
+<main>
+    <h2>An error occured during authorization</h2>
+    <p>
+        <strong>Path:</strong> {{error_path}}
+    </p>
+    <ul>
+        {% for message in messages %}
+        <li>
+            {{message}}
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock content %}
