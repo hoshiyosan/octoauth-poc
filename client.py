@@ -2,20 +2,20 @@
 Octoauth client PoC
 """
 import logging
+from dataclasses import dataclass
 from typing import List
 
 import requests
 import urllib3
-from pydantic import BaseModel
 
 
-class Permission(BaseModel):
+@dataclass
+class Permission:
     """
     A permission defined by/for current oauth2 client application
     """
 
     code: str
-    name: str
     description: str
 
 
@@ -106,4 +106,12 @@ class OctoAuth:
         self.permissions = permissions
 
 
-octo = OctoAuth(api_url="http://localhost:7000", client_id="toto", client_secret="tata", permissions=[Permission()])
+octo = OctoAuth(
+    api_url="http://localhost:7000",
+    client_id="toto",
+    client_secret="tata",
+    permissions=[
+        Permission(code="sortify:view-playlists", description="access detailed information of your playlists"),
+        Permission(code="sortify:edit-playlists", description="update tracks or information of your playlists"),
+    ],
+)
