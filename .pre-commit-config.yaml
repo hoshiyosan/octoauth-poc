@@ -6,7 +6,8 @@ repos:
       - id: check-yaml
         name: Check yaml files
       - id: end-of-file-fixer
-        name: Fix EOF
+        name: Add blank line to EOF
+        types: [python]
       - id: trailing-whitespace
         name: Remove trailing whitespace
   - repo: https://github.com/pycqa/isort
@@ -20,7 +21,10 @@ repos:
       - id: black
 
   # Quality analysis
-  - repo: https://github.com/pycqa/pylint
-    rev: pylint-2.6.0
+  - repo: local
     hooks:
-      - id: pylint
+    - id: pylint
+      name: pylint
+      entry: pylint
+      language: system
+      types: [python]
